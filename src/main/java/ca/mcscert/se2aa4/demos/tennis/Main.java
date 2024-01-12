@@ -5,11 +5,12 @@ import org.apache.commons.cli.CommandLineParser;
 import org.apache.commons.cli.DefaultParser;
 import org.apache.commons.cli.Options;
 import org.apache.commons.cli.ParseException;
-
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
 public class Main {
+
+    private static final Logger logger = LogManager.getLogger(MyClass.class);
 
     public static int PLAYER1_STRENGTH;
     public static int PLAYER2_STRENGTH;
@@ -17,6 +18,7 @@ public class Main {
     protected static final Logger logger = LogManager.getLogger();
 
     public static void main(String[] args) {
+
         logger.info("** Starting Tennis Counter Assistant");
         logger.info("**** Reading Command-Line Arguments");
         Options options = new Options();
@@ -26,6 +28,7 @@ public class Main {
         try {
             CommandLine cmd = parser.parse(options, args);
             PLAYER1_STRENGTH = Integer.parseInt(cmd.getOptionValue("p1","50"));
+
             logger.info("****** P1's Strength is " + PLAYER1_STRENGTH+"/100");
             PLAYER2_STRENGTH = Integer.parseInt(cmd.getOptionValue("p2","50"));
             logger.info("****** P2's Strength is " + PLAYER2_STRENGTH+"/100");
@@ -35,5 +38,6 @@ public class Main {
         logger.info("**** Starting game");
         logger.info("** TODO...");
         logger.info("** Closing Tennis Counter Assistant");
+        System.out.println("Hello, World");
     }
 }
